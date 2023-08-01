@@ -1,0 +1,185 @@
+body {
+    background-color: #171717; /* Fondo negro */
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Texto blanco */
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #ff00ff; /* Texto magenta */
+    text-shadow: 2px 2px 4px #ff00ff; /* Sombra de neón */
+}
+
+#chat-messages {
+    padding: 20px;
+}
+
+#chat-messages p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #ff00ff; /* Sombra de neón para mensajes */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ff00ff; /* Borde de neón para campos de entrada */
+    background-color: #222; /* Fondo oscuro para campos de entrada */
+    color: #fff; /* Texto blanco */
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ff00ff; /* Botón de neón */
+    border: none;
+    color: #fff; /* Texto blanco */
+}
+
+/* Estilos para la sidebar */
+.sidebar {
+    width: 300px;
+    background-color: #333; /* Fondo oscuro para la sidebar */
+    padding: 20px;
+    color: #fff; /* Texto blanco */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    position: relative; /* Permite posicionar la etiqueta "pill" dentro del elemento li */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.username {
+    flex: 1; /* El nombre de usuario ocupará el espacio disponible */
+}
+
+/* Estilos para la etiqueta "pill" */
+.message-count-pill {
+    background-color: #ff00ff; /* Color de fondo de la etiqueta "pill" */
+    color: #fff; /* Texto blanco de la etiqueta "pill" */
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute; /* Posicionamiento absoluto para colocar la etiqueta "pill" sobre el nombre de usuario */
+    right: 0;
+    top: 50%; /* Centrar verticalmente la etiqueta "pill" */
+    transform: translateY(-50%); /* Centrar verticalmente la etiqueta "pill" */
+/* Estilos globales */
+body {
+    background-color: #f2f2f2; /* Fondo en gris claro */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Texto en gris oscuro */
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #933dff; /* Texto en morado */
+}
+
+/* Estilos para el chat */
+#chat-messages {
+    padding: 20px;
+}
+
+#chat-messages p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#chat-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#chat-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #933dff; /* Borde en morado */
+    background-color: #fff; /* Fondo en blanco */
+    color: #333; /* Texto en gris oscuro */
+    margin-right: 10px;
+}
+
+#chat-form button {
+    padding: 10px;
+    background-color: #933dff; /* Botón en morado */
+    border: none;
+    color: #fff; /* Texto en blanco */
+}
+
+/* Estilos para la sidebar */
+.sidebar {
+    width: 300px;
+    background-color: #333; /* Fondo en gris oscuro para la sidebar */
+    padding: 20px;
+    color: #fff; /* Texto en blanco */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    position: relative; /* Permite posicionar la etiqueta "pill" dentro del elemento li */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para la etiqueta "pill" */
+.message-count-pill {
+    background-color: #933dff; /* Color de fondo de la etiqueta "pill" en morado */
+    color: #fff; /* Texto blanco de la etiqueta "pill" */
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute; /* Posicionamiento absoluto para colocar la etiqueta "pill" sobre el nombre de usuario */
+    right: 0;
+    top: 50%; /* Centrar verticalmente la etiqueta "pill" */
+    transform: translateY(-50%); /* Centrar verticalmente la etiqueta "pill" */
+    margin-left: 10px;
+}
+
+}
