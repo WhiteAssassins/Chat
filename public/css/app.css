@@ -1,15 +1,15 @@
 :root {
-    --bg: #f4efe5;
-    --ink: #17261d;
-    --muted: #5b695f;
-    --panel: rgba(255, 252, 247, 0.82);
-    --panel-strong: #fffaf0;
-    --line: rgba(23, 38, 29, 0.12);
-    --accent: #d86d38;
-    --accent-dark: #ab4f24;
-    --success: #2f7a52;
-    --danger: #b03f3f;
-    --shadow: 0 24px 80px rgba(52, 44, 24, 0.14);
+    --bg: #f3f5f7;
+    --surface: #ffffff;
+    --surface-muted: #f8fafc;
+    --ink: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #0f766e;
+    --accent-soft: #dff6f3;
+    --danger: #b91c1c;
+    --success: #166534;
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -26,17 +26,30 @@ body {
     color: var(--ink);
     font-family: "Space Grotesk", sans-serif;
     background:
-        radial-gradient(circle at top left, rgba(216, 109, 56, 0.24), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(47, 122, 82, 0.18), transparent 30%),
-        linear-gradient(160deg, #f7f1e6 0%, #efe4d2 48%, #f5efe8 100%);
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 26%),
+        linear-gradient(180deg, #f8fafc 0%, #f3f5f7 100%);
 }
 
 a {
     color: inherit;
 }
 
+.brand-lockup {
+    display: block;
+    height: auto;
+}
+
+.brand-lockup-auth {
+    width: min(260px, 100%);
+    margin-bottom: 0.75rem;
+}
+
+.brand-lockup-sidebar {
+    width: 180px;
+    max-width: 100%;
+}
+
 .eyebrow,
-.card-kicker,
 .status-pill,
 .message-time,
 .online-list small {
@@ -48,67 +61,55 @@ a {
 .auth-page {
     display: grid;
     place-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .auth-shell {
-    width: min(1100px, 100%);
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 1.5rem;
+    width: min(460px, 100%);
 }
 
-.auth-panel {
+.auth-shell-compact {
+    display: block;
+}
+
+.auth-card-simple {
+    background: rgba(255, 255, 255, 0.92);
     border: 1px solid var(--line);
-    border-radius: 30px;
-    background: var(--panel);
-    backdrop-filter: blur(16px);
-    box-shadow: var(--shadow);
-}
-
-.auth-panel-copy {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 540px;
-}
-
-.auth-panel-copy h1 {
-    font-size: clamp(2.4rem, 6vw, 4.8rem);
-    line-height: 0.95;
-    margin: 0 0 1rem;
-    max-width: 10ch;
-}
-
-.lede {
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 58ch;
-}
-
-.feature-list {
-    padding-left: 1.1rem;
-    color: var(--muted);
-    line-height: 1.8;
-}
-
-.auth-panel-form {
-    padding: 1.2rem;
-}
-
-.auth-card {
-    background: var(--panel-strong);
     border-radius: 24px;
-    border: 1px solid rgba(23, 38, 29, 0.08);
-    height: 100%;
-    padding: 2rem;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
 }
 
-.auth-card h2 {
+.auth-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+}
+
+.auth-top h1 {
+    margin: 0.3rem 0 0;
     font-size: 2rem;
-    margin: 0.25rem 0 1.5rem;
+}
+
+.auth-subcopy {
+    margin: 0.6rem 0 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.auth-link-inline {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.auth-footnote {
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
 }
 
 .stack-md {
@@ -122,24 +123,25 @@ a {
 }
 
 .field span {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
 .field input,
 .composer textarea {
-    border: 1px solid rgba(23, 38, 29, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 0.95rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    padding: 0.9rem 0.95rem;
     font: inherit;
     color: var(--ink);
 }
 
 .field input:focus,
 .composer textarea:focus {
-    outline: 2px solid rgba(216, 109, 56, 0.18);
+    outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
 .field small,
@@ -150,18 +152,23 @@ a {
 .button-primary,
 .button-secondary {
     border: 0;
-    border-radius: 999px;
-    padding: 0.95rem 1.3rem;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
     font: inherit;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
 
 .button-primary {
     background: var(--accent);
-    color: #fff8f0;
-    box-shadow: 0 14px 28px rgba(216, 109, 56, 0.28);
+    color: #f8fffe;
+}
+
+.button-secondary {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
 }
 
 .button-primary:hover,
@@ -169,112 +176,113 @@ a {
     transform: translateY(-1px);
 }
 
-.button-primary:hover {
-    background: var(--accent-dark);
-}
-
-.button-secondary {
-    background: rgba(23, 38, 29, 0.08);
-    color: var(--ink);
-}
-
-.switch-link {
-    margin-top: 1.25rem;
-    color: var(--muted);
-}
-
-.switch-link a {
-    color: var(--accent-dark);
-    font-weight: 700;
-    text-decoration: none;
-}
-
 .alert {
-    border-radius: 16px;
-    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    padding: 0.85rem 0.95rem;
     margin-bottom: 1rem;
+    border: 1px solid transparent;
 }
 
 .alert.error {
     color: var(--danger);
-    background: rgba(176, 63, 63, 0.1);
+    background: rgba(185, 28, 28, 0.08);
+    border-color: rgba(185, 28, 28, 0.12);
 }
 
 .alert.success {
     color: var(--success);
-    background: rgba(47, 122, 82, 0.12);
+    background: rgba(22, 101, 52, 0.08);
+    border-color: rgba(22, 101, 52, 0.12);
 }
 
 .chat-page {
-    padding: 1.25rem;
+    padding: 1rem;
 }
 
 .chat-shell {
-    min-height: calc(100vh - 2.5rem);
+    min-height: calc(100vh - 2rem);
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 1rem;
 }
 
 .chat-sidebar,
 .chat-main {
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid var(--line);
-    border-radius: 28px;
-    background: var(--panel);
-    backdrop-filter: blur(16px);
+    border-radius: 24px;
     box-shadow: var(--shadow);
 }
 
 .chat-sidebar {
-    padding: 1.4rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.9rem;
 }
 
-.chat-sidebar h1,
+.sidebar-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    align-items: start;
+}
+
 .chat-header h2 {
-    margin: 0.2rem 0 0;
+    margin: 0.25rem 0 0;
+}
+
+.sidebar-tagline {
+    margin: 0.45rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
 }
 
 .profile-card,
+.room-card,
 .online-card,
 .message,
+.empty-state,
 .composer {
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(23, 38, 29, 0.08);
-    border-radius: 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
 }
 
 .profile-card {
-    padding: 1rem;
+    padding: 0.9rem;
     display: flex;
-    gap: 0.9rem;
+    gap: 0.85rem;
     align-items: center;
 }
 
 .profile-card p,
 .message-meta,
-.section-heading h2 {
+.section-heading h2,
+.room-summary {
     margin: 0;
 }
 
 .avatar-chip,
 .user-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     display: grid;
     place-items: center;
     font-weight: 700;
-    color: #fffaf0;
-    background: linear-gradient(135deg, #d86d38 0%, #2f7a52 100%);
+    color: #f8fffe;
+    background: var(--accent);
+}
+
+.room-card,
+.online-card {
+    padding: 0.9rem;
 }
 
 .online-card {
-    padding: 1rem;
     flex: 1;
-    min-height: 220px;
+    min-height: 180px;
 }
 
 .section-heading {
@@ -285,26 +293,49 @@ a {
 }
 
 .section-heading span {
-    background: rgba(216, 109, 56, 0.1);
-    color: var(--accent-dark);
-    padding: 0.4rem 0.65rem;
+    background: var(--surface-muted);
+    color: var(--muted);
+    padding: 0.28rem 0.55rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 700;
 }
 
+.room-list,
 .online-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 0.8rem;
+    gap: 0.55rem;
+}
+
+.room-link {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent;
+    background: var(--surface-muted);
+    font-weight: 600;
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.room-link:hover {
+    border-color: rgba(15, 118, 110, 0.18);
+}
+
+.room-link.is-active {
+    background: var(--accent-soft);
+    border-color: rgba(15, 118, 110, 0.22);
+    color: #0b5a54;
 }
 
 .online-list li {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.7rem;
 }
 
 .online-list strong {
@@ -313,46 +344,55 @@ a {
 
 .online-list small {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 }
 
 .chat-main {
     padding: 1rem;
     display: grid;
     grid-template-rows: auto 1fr auto auto;
-    gap: 1rem;
+    gap: 0.9rem;
 }
 
 .chat-header {
-    padding: 0.4rem 0.4rem 0 0.4rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    align-items: end;
+    align-items: start;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.room-summary {
+    margin-top: 0.45rem;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 60ch;
 }
 
 .status-pill {
     color: var(--muted);
-    background: rgba(23, 38, 29, 0.06);
-    padding: 0.55rem 0.8rem;
+    background: var(--surface-muted);
+    padding: 0.45rem 0.7rem;
     border-radius: 999px;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
 }
 
 .messages {
     overflow-y: auto;
     display: grid;
-    gap: 0.8rem;
+    gap: 0.7rem;
     padding-right: 0.2rem;
 }
 
 .message {
-    padding: 0.9rem 1rem;
+    padding: 0.85rem 0.95rem;
 }
 
 .message.is-own {
-    background: rgba(216, 109, 56, 0.12);
-    border-color: rgba(216, 109, 56, 0.22);
+    background: var(--accent-soft);
+    border-color: rgba(15, 118, 110, 0.18);
 }
 
 .message-meta {
@@ -360,7 +400,7 @@ a {
     justify-content: space-between;
     gap: 1rem;
     align-items: baseline;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.35rem;
 }
 
 .message-author {
@@ -369,30 +409,65 @@ a {
 
 .message-time {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 }
 
 .message-body {
     margin: 0;
-    color: #233329;
-    line-height: 1.65;
+    color: var(--ink);
+    line-height: 1.6;
     white-space: pre-wrap;
     word-break: break-word;
 }
 
+.empty-state {
+    padding: 1rem;
+}
+
+.empty-state strong {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.empty-state p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
 .composer {
-    padding: 0.8rem;
+    padding: 0.75rem;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 0.8rem;
+    gap: 0.7rem;
     align-items: end;
 }
 
 .composer textarea {
     width: 100%;
-    min-height: 56px;
+    min-height: 52px;
     max-height: 180px;
-    resize: vertical;
+    resize: none;
+    background: var(--surface-muted);
+}
+
+.composer-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    padding: 0 0.1rem;
+}
+
+.typing-indicator,
+.char-counter {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.typing-indicator {
+    min-height: 1.2rem;
 }
 
 .sr-only {
@@ -408,20 +483,23 @@ a {
 }
 
 @media (max-width: 920px) {
-    .auth-shell,
     .chat-shell {
         grid-template-columns: 1fr;
-    }
-
-    .auth-panel-copy {
-        min-height: auto;
-    }
-
-    .chat-shell {
         min-height: auto;
     }
 
     .chat-main {
         min-height: 70vh;
+    }
+
+    .chat-header,
+    .composer-meta,
+    .auth-top {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .composer {
+        grid-template-columns: 1fr;
     }
 }

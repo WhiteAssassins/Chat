@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#ECFDF5"/>
+  <rect x="48" y="48" width="1104" height="534" rx="40" fill="url(#card)"/>
+  <circle cx="1034" cy="140" r="78" fill="#34D399" fill-opacity="0.18"/>
+  <circle cx="1088" cy="210" r="24" fill="#F8FAFC" fill-opacity="0.5"/>
+  <circle cx="174" cy="114" r="18" fill="#F8FAFC" fill-opacity="0.35"/>
+  <rect x="110" y="148" width="160" height="160" rx="38" fill="#0F172A"/>
+  <rect x="122" y="160" width="136" height="136" rx="30" fill="url(#mark)"/>
+  <path d="M145 236H168L183 200L202 263L220 219L233 236H248" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="318" y="226" fill="#F8FAFC" font-family="Space Grotesk, Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">Pulse Chat</text>
+  <text x="320" y="282" fill="#99F6E4" font-family="IBM Plex Mono, monospace" font-size="24" font-weight="600" letter-spacing="6">CODEIGNITER 4 PRIVATE MVP</text>
+  <text x="320" y="360" fill="#D1FAE5" font-family="Space Grotesk, Arial, sans-serif" font-size="34">Simple rooms, account auth, online presence</text>
+  <text x="320" y="406" fill="#D1FAE5" font-family="Space Grotesk, Arial, sans-serif" font-size="34">and realtime chat on a clean foundation.</text>
+  <rect x="320" y="462" width="204" height="54" rx="16" fill="#F8FAFC"/>
+  <text x="357" y="497" fill="#0F766E" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="700">General / Ideas / Soporte</text>
+  <defs>
+    <linearGradient id="card" x1="88" y1="86" x2="1100" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#115E59"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="130" y1="166" x2="250" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+</svg>

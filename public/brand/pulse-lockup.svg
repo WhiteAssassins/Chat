@@ -1,0 +1,14 @@
+<svg width="620" height="180" viewBox="0 0 620 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="8" width="164" height="164" rx="40" fill="#0F172A"/>
+  <rect x="20" y="20" width="140" height="140" rx="32" fill="url(#brand)"/>
+  <path d="M43 96H66L80 64L98 123L115 82L127 96H146" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="206" y="82" fill="#111827" font-family="Space Grotesk, Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.8">Pulse</text>
+  <text x="206" y="126" fill="#0F766E" font-family="IBM Plex Mono, monospace" font-size="22" font-weight="600" letter-spacing="6">CHAT</text>
+  <text x="206" y="154" fill="#6B7280" font-family="Space Grotesk, Arial, sans-serif" font-size="18">rooms, presence, realtime basics</text>
+  <defs>
+    <linearGradient id="brand" x1="28" y1="28" x2="146" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+</svg>

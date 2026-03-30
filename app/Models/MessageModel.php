@@ -14,6 +14,7 @@ class MessageModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'user_id',
+        'room_id',
         'body',
     ];
 
@@ -47,11 +48,12 @@ class MessageModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function latestWithUsers(int $limit = 50): array
+    public function latestWithUsers(int $roomId, int $limit = 50): array
     {
         $rows = $this->builder()
-            ->select('messages.id, messages.body, messages.created_at, users.id AS user_id, users.username')
+            ->select('messages.id, messages.room_id, messages.body, messages.created_at, users.id AS user_id, users.username')
             ->join('users', 'users.id = messages.user_id')
+            ->where('messages.room_id', $roomId)
             ->orderBy('messages.id', 'DESC')
             ->limit($limit)
             ->get()
@@ -60,11 +62,12 @@ class MessageModel extends Model
         return array_reverse($rows);
     }
 
-    public function afterIdWithUsers(int $afterId): array
+    public function afterIdWithUsers(int $roomId, int $afterId): array
     {
         return $this->builder()
-            ->select('messages.id, messages.body, messages.created_at, users.id AS user_id, users.username')
+            ->select('messages.id, messages.room_id, messages.body, messages.created_at, users.id AS user_id, users.username')
             ->join('users', 'users.id = messages.user_id')
+            ->where('messages.room_id', $roomId)
             ->where('messages.id >', $afterId)
             ->orderBy('messages.id', 'ASC')
             ->get()
@@ -74,7 +77,7 @@ class MessageModel extends Model
     public function findWithUser(int $messageId): ?array
     {
         return $this->builder()
-            ->select('messages.id, messages.body, messages.created_at, users.id AS user_id, users.username')
+            ->select('messages.id, messages.room_id, messages.body, messages.created_at, users.id AS user_id, users.username')
             ->join('users', 'users.id = messages.user_id')
             ->where('messages.id', $messageId)
             ->get()

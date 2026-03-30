@@ -27,6 +27,13 @@ abstract class BaseController extends Controller
 
     protected $helpers = ['url', 'form'];
 
+    protected function throttleKey(string $prefix, string $suffix = ''): string
+    {
+        $ip = $this->request->getIPAddress() ?: 'unknown';
+
+        return trim($prefix . ':' . $ip . ':' . $suffix, ':');
+    }
+
     /**
      * @return void
      */

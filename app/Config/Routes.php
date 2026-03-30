@@ -14,4 +14,5 @@ $routes->group('chat', ['filter' => 'auth'], static function ($routes) {
     $routes->get('/', 'ChatController::index');
     $routes->get('poll', 'ChatController::poll');
     $routes->post('messages', 'ChatController::store');
+    $routes->post('typing', 'ChatController::typing');
 });

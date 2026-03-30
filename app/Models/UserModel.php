@@ -16,7 +16,9 @@ class UserModel extends Model
         'username',
         'email',
         'password_hash',
+        'active_room_id',
         'last_seen_at',
+        'last_typing_at',
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -51,25 +53,62 @@ class UserModel extends Model
 
     public function findByLogin(string $login): ?array
     {
+        $normalizedLogin = trim($login);
+
         return $this->builder()
             ->groupStart()
-            ->where('username', $login)
-            ->orWhere('email', $login)
+            ->where('username', $normalizedLogin)
+            ->orWhere('LOWER(email)', strtolower($normalizedLogin))
             ->groupEnd()
             ->get()
             ->getRowArray();
     }
 
-    public function markSeen(int $userId): void
+    public function markSeen(int $userId, ?int $roomId = null): void
     {
-        $this->update($userId, ['last_seen_at' => date('Y-m-d H:i:s')]);
+        $data = ['last_seen_at' => date('Y-m-d H:i:s')];
+
+        if ($roomId !== null) {
+            $data['active_room_id'] = $roomId;
+        }
+
+        $this->update($userId, $data);
     }
 
-    public function onlineUsers(int $windowSeconds = 120): array
+    public function markTyping(int $userId, int $roomId): void
+    {
+        $timestamp = date('Y-m-d H:i:s');
+
+        $this->update($userId, [
+            'active_room_id' => $roomId,
+            'last_seen_at'   => $timestamp,
+            'last_typing_at' => $timestamp,
+        ]);
+    }
+
+    public function onlineUsers(int $roomId, int $windowSeconds = 120): array
     {
         return $this->builder()
             ->select('id, username, last_seen_at')
+            ->where('active_room_id', $roomId)
             ->where('last_seen_at >=', date('Y-m-d H:i:s', time() - $windowSeconds))
+            ->orderBy('username', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function typingUsers(int $roomId, int $excludeUserId = 0, int $windowSeconds = 6): array
+    {
+        $builder = $this->builder()
+            ->select('id, username')
+            ->where('active_room_id', $roomId)
+            ->where('last_typing_at >=', date('Y-m-d H:i:s', time() - $windowSeconds));
+
+        if ($excludeUserId > 0) {
+            $builder->where('id !=', $excludeUserId);
+        }
+
+        return $builder
             ->orderBy('username', 'ASC')
             ->get()
             ->getResultArray();
