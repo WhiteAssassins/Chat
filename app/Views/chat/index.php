@@ -1,3 +1,20 @@
+<?php
+$roomAssets = [
+    'general' => [
+        'icon' => 'brand/rooms/general.svg',
+        'label' => 'Conversacion general',
+    ],
+    'ideas' => [
+        'icon' => 'brand/rooms/ideas.svg',
+        'label' => 'Ideas y concepto',
+    ],
+    'soporte' => [
+        'icon' => 'brand/rooms/soporte.svg',
+        'label' => 'Ayuda y soporte',
+    ],
+];
+$currentRoomAsset = $roomAssets[$currentRoom['slug']] ?? $roomAssets['general'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,6 +25,7 @@
     <meta property="og:title" content="Pulse Chat">
     <meta property="og:description" content="Simple rooms, presence and realtime chat on CodeIgniter 4.">
     <meta property="og:image" content="<?= base_url('brand/pulse-social-card.svg') ?>">
+    <meta name="theme-color" content="#0f766e">
     <link rel="icon" type="image/svg+xml" href="<?= base_url('favicon.svg') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,11 +70,16 @@
                 </div>
                 <nav class="room-list" aria-label="Salas disponibles">
                     <?php foreach ($rooms as $room): ?>
+                        <?php $roomAsset = $roomAssets[$room['slug']] ?? $roomAssets['general']; ?>
                         <a
                             href="<?= site_url('/chat') . '?room=' . urlencode($room['slug']) ?>"
                             class="room-link <?= (int) $room['id'] === (int) $currentRoom['id'] ? 'is-active' : '' ?>"
                         >
-                            <strong><?= esc($room['name']) ?></strong>
+                            <img src="<?= base_url($roomAsset['icon']) ?>" alt="" class="room-icon" width="24" height="24">
+                            <span class="room-copy">
+                                <strong><?= esc($room['name']) ?></strong>
+                                <small><?= esc($roomAsset['label']) ?></small>
+                            </span>
                         </a>
                     <?php endforeach; ?>
                 </nav>
@@ -75,7 +98,10 @@
             <header class="chat-header">
                 <div>
                     <p class="eyebrow">Sala actual</p>
-                    <h2><?= esc($currentRoom['name']) ?></h2>
+                    <div class="chat-header-title">
+                        <img src="<?= base_url($currentRoomAsset['icon']) ?>" alt="" class="room-icon room-icon-lg" width="28" height="28">
+                        <h2><?= esc($currentRoom['name']) ?></h2>
+                    </div>
                     <p class="room-summary"><?= esc($currentRoom['description']) ?></p>
                 </div>
                 <p class="status-pill"><?= count($onlineUsers) ?> activos</p>

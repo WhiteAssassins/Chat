@@ -2,6 +2,8 @@
 
 Chat sencillo hecho desde cero sobre CodeIgniter 4, pensado para servir como base limpia de un producto privado o un MVP interno.
 
+![Pulse Chat cover](public/brand/pulse-repo-cover.svg)
+
 ## Incluye
 
 - Registro e inicio de sesion
@@ -123,8 +125,15 @@ Assets base listos para seguir iterando:
 
 - `public/brand/pulse-mark.svg`: isotipo principal
 - `public/brand/pulse-lockup.svg`: wordmark horizontal
+- `public/brand/pulse-app-icon.svg`: icono cuadrado para app, avatar o launcher
 - `public/brand/pulse-social-card.svg`: imagen social o portada base
+- `public/brand/pulse-repo-cover.svg`: portada para README o repo privado
 - `public/favicon.svg`: favicon SVG
+- `public/brand/rooms/general.svg`: icono de la sala General
+- `public/brand/rooms/ideas.svg`: icono de la sala Ideas
+- `public/brand/rooms/soporte.svg`: icono de la sala Soporte
+
+Todos los assets estan en SVG para que puedas versionarlos limpios, recolorearlos facil y exportarlos luego a PNG si hace falta.
 
 ## Estructura principal
 

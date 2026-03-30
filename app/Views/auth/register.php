@@ -8,6 +8,7 @@
     <meta property="og:title" content="Pulse Chat">
     <meta property="og:description" content="Simple rooms, presence and realtime chat on CodeIgniter 4.">
     <meta property="og:image" content="<?= base_url('brand/pulse-social-card.svg') ?>">
+    <meta name="theme-color" content="#0f766e">
     <link rel="icon" type="image/svg+xml" href="<?= base_url('favicon.svg') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
